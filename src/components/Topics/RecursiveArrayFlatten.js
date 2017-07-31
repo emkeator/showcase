@@ -1,32 +1,25 @@
 import React, {Component} from 'react'
 
-class FilterString extends Component {
+class RecursiveArrayFlatten extends Component {
 
     constructor() {
         super();
+
         this.state = {
-            unFilteredArray: ['the ring -- destroyed', 'the diary -- destroyed', 'the locket -- known, not found', 
-                             'the cup -- known, not found', "something of Ravenclaw's or Gryffindor's (?) -- not found", 'Nagini (?) --not found'],
-            userInput: '',
-            filteredArray: []
+            unFilteredArray: [1, 2, [4, 5, [8, 9, [10, 11, 12, 13], 14, 15, [16, 17, [18, 19], [20, 21], 22], 23], 24, 25], 26, [27, 28]],
+            filteredArray: [],
+            userInput: '[1, 2, [4, 5, [8, 9, [10, 11, 12, 13], 14, 15, [16, 17, [18, 19], [20, 21], 22], 23], 24, 25], 26, [27, 28]]'
         }
     }
 
     updateInput(e) {
-        this.setState({userInput: e.target.value});
-    }
-
-    solveToy() {
-        var input = this.state.userInput;
-        this.setState({ filteredArray: this.state.unFilteredArray.filter(function(value) {
-            return value.indexOf(input) !== -1;
-        }) });
+        console.log(Array.from(userInput));
     }
 
     render() {
         return (
             <div className="puzzleBox filterStringPB">
-                <h4>Filter String</h4>
+                <h4>Recursively Flatten a Nested Array</h4>
                 <span className="puzzleText">{JSON.stringify(this.state.unFilteredArray)}</span>
                 <input className="inputLine" onChange={(e) => this.updateInput(e)}></input>
                 <button className="confirmationButton" onClick={() => this.solveToy()}>Filter</button>
@@ -37,4 +30,4 @@ class FilterString extends Component {
     }
 }
 
-export default FilterString;
+export default RecursiveArrayFlatten;

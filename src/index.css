@@ -64,6 +64,7 @@ body {
 
 .filterObjectRB {
   height: 95px;
+  font-size: 0.75rem;
 }
 
 .filterStringRB {
